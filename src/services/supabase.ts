@@ -114,11 +114,14 @@ class SupabaseAuthService {
       provider,
       options: {
         redirectTo: redirectUrl,
+        queryParams: provider === 'google' ? {
+          access_type: 'offline',
+          prompt: 'consent',
+        } : undefined,
       },
     });
 
     if (error) throw error;
-    // OAuth redirects — the onAuthStateChange listener handles the rest
   }
 
   // ---- Sign in with Email Magic Link ----
