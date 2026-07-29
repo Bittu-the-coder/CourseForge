@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CourseForge Popup</title>
+  <style>
+    body {
+      width: 320px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 16px;
+      background-color: #f7f7f4;
+      color: #26251e;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #e6e5e0;
+      padding-bottom: 8px;
+    }
+    .logo-badge {
+      background-color: #f54e00;
+      color: white;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .video-info {
+      background-color: white;
+      border: 1px solid #e6e5e0;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+    .video-title {
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 4px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .video-url {
+      font-size: 11px;
+      color: #807d72;
+      word-break: break-all;
+    }
+    .btn-primary {
+      width: 100%;
+      background-color: #f54e00;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .btn-primary:hover {
+      background-color: #d04200;
+    }
+    .status {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #1f8a65;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo-badge">CF</div>
+    <div class="title">CourseForge</div>
+  </div>
+
+  <div className="video-info">
+    <div className="video-title" id="videoTitle">Detecting YouTube video...</div>
+    <div className="video-url" id="videoUrl">Please open a YouTube video tab.</div>
+  </div>
+
+  <button class="btn-primary" id="saveBtn">1-Click Save to CourseForge</button>
+  <div class="status" id="statusMsg">✓ Video imported successfully!</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

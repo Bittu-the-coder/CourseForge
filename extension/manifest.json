@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "CourseForge - YouTube Course Importer",
+  "version": "1.0.0",
+  "description": "Turn YouTube videos and playlists into structured courses with 1-click import into CourseForge.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CourseForge Importer"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

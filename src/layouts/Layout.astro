@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "CourseForge - Turn YouTube into a Structured Learning Platform",
+  description = "CourseForge lets students and developers build personal structured courses from YouTube videos with chapters, smart timestamped notes, interactive roadmaps, and offline sync." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    {/* SEO Meta Tags */}
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f54e00" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    {/* Dark Mode hydration script */}
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return 'dark';
+      })();
+
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+  <body class="bg-canvas text-ink dark:bg-canvas dark:text-canvas transition-colors duration-200">
+    <slot />
+  </body>
+</html>
